@@ -181,6 +181,35 @@ def hanoi(n,a,b,c):
         hanoi_move(a,b)
         hanoi(n-1,c,b,a)
 
+def restart(var):
+    global game_paused, Tower1, Tower2, Tower3, active_disc, precedentTower, moves, position, objects_rect, W, H, X, Y
+    game_paused = False
+    Tower1 = []
+    Tower2 = []
+    Tower3 = []
+    active_disc = None
+    precedentTower = None
+    moves = 0
+
+    position = []
+    objects_rect = []
+
+    W = 75
+    H = 24
+    X = rect1.centerx - (W // 2)
+    Y = rect1.bottom - (H + var * H)
+
+    for i in range(var):
+        position.append((X, Y))
+        objects_rect.append(pygame.Rect(X, Y, W, H))
+        W = W + 30
+        X = X - 15
+        Y = Y + 24
+
+    for i in range(var - 1, -1, -1):
+        Tower1.append(objects_rect[i])
+
+
 running = True
 
 #Game loop
@@ -196,30 +225,7 @@ while running:
         if solve_button.draw(screen): #solve the game
 
             #restart the game variabiles
-            game_paused = False
-            Tower1 = []
-            Tower2 = []
-            Tower3 = []
-            active_disc = None
-            precedentTower = None
-            moves = 0
-
-            position = []
-            objects_rect = []
-
-            W = 75
-            H = 24
-            X = rect1.centerx - (W // 2)
-            Y = rect1.bottom - (H + DISC_NUMBER * H)
-            for i in range(DISC_NUMBER):
-                position.append((X, Y))
-                objects_rect.append(pygame.Rect(X, Y, W, H))
-                W = W + 30
-                X = X - 15
-                Y = Y + 24
-
-            for i in range(DISC_NUMBER - 1, -1, -1):
-                Tower1.append(objects_rect[i])
+            restart(DISC_NUMBER)
 
             hanoi(DISC_NUMBER, "Tower1", "Tower3", "Tower2")
 
@@ -231,91 +237,19 @@ while running:
     else:
         if restart_button.draw(screen):
             # restart the game variabiles
-            Tower1 = []
-            Tower2 = []
-            Tower3 = []
-
-            active_disc = None
-            precedentTower = None
-            moves = 0
-            game_paused = False
-
-            position = []
-            objects_rect = []
-
-            W = 75
-            H = 24
-            X = rect1.centerx - (W // 2)
-            Y = rect1.bottom - (H + DISC_NUMBER * H)
-            for i in range(DISC_NUMBER):
-                position.append((X, Y))
-                objects_rect.append(pygame.Rect(X, Y, W, H))
-                W = W + 30
-                X = X - 15
-                Y = Y + 24
-
-            for i in range(DISC_NUMBER - 1, -1, -1):
-                Tower1.append(objects_rect[i])
+            restart(DISC_NUMBER)
 
         if up_button.draw(screen) and DISC_NUMBER < 8: #increase the number of discs
 
             # restart the game variabiles
             DISC_NUMBER += 1
-            Tower1 = []
-            Tower2 = []
-            Tower3 = []
-
-            active_disc = None
-            precedentTower = None
-            moves = 0
-            game_paused = False
-
-            position = []
-            objects_rect = []
-
-            W = 75
-            H = 24
-            X = rect1.centerx - (W // 2)
-            Y = rect1.bottom - (H + DISC_NUMBER * H)
-            for i in range(DISC_NUMBER):
-                position.append((X, Y))
-                objects_rect.append(pygame.Rect(X, Y, W, H))
-                W = W + 30
-                X = X - 15
-                Y = Y + 24
-
-            for i in range(DISC_NUMBER - 1, -1, -1):
-                Tower1.append(objects_rect[i])
+            restart(DISC_NUMBER)
 
         elif down_button.draw(screen) and DISC_NUMBER > 1: #decrease the number of discs
 
             # restart the game variabiles
             DISC_NUMBER -= 1
-            Tower1 = []
-            Tower2 = []
-            Tower3 = []
-
-            active_disc = None
-            precedentTower = None
-            moves = 0
-            game_paused = False
-
-            position = []
-            objects_rect = []
-
-            W = 75
-            H = 24
-            X = rect1.centerx - (W // 2)
-            Y = rect1.bottom - (H + DISC_NUMBER * H)
-            for i in range(DISC_NUMBER):
-                position.append((X, Y))
-                objects_rect.append(pygame.Rect(X, Y, W, H))
-                W = W + 30
-                X = X - 15
-                Y = Y + 24
-
-            for i in range(DISC_NUMBER - 1, -1, -1):
-                Tower1.append(objects_rect[i])
+            restart(DISC_NUMBER)
 
         if menu_button.draw(screen): #if the menu button is pressed
             game_paused = True
