@@ -1,6 +1,5 @@
 
-
- ###contains 3 files:
+### Contains 3 files:
 - _main.py_  - where the game is located
 - _button.py_ - where I created the buttons
 - _images_  - where the images in the game are located
@@ -64,3 +63,5 @@
 - If the right button is up the game will check for collision between the disk and towers. If the disk is put in a correct tower the Towers variables will be updated and the position of the disk will be changed using move_disc() function. If thed disk is put in a wrong place the disk will be moved back to his position.
 - If cross is pressed the game loop will end
 - pygame.display.flip() will update the game at every iteration of the game loop
+
+  
