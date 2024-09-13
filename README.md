@@ -4,6 +4,15 @@
 - _button.py_ - where I created the buttons
 - _images_  - where the images in the game are located
 
+### Images :
+---
+![Screenshot 2024-09-13 165801](https://github.com/user-attachments/assets/643a86f7-b901-48c8-a22e-ab6db8dbf92e)
+![Screenshot 2024-09-13 165834](https://github.com/user-attachments/assets/3f405383-cf23-4b2c-b179-6670491d84d0)
+![Screenshot 2024-09-13 165843](https://github.com/user-attachments/assets/7966081b-34be-467c-8219-d46814e842d6)
+![Screenshot 2024-09-13 165946](https://github.com/user-attachments/assets/900c0893-b31f-4618-a554-1c2ca6c5bd1e)
+---
+</br>
+
 ## main.py explanation:
 
 ### Create Screen:
